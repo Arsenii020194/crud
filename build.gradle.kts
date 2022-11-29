@@ -17,7 +17,11 @@ repositories {
 }
 
 dependencies {
-	//implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.springframework.boot:spring-boot-starter-data-rest")
+	implementation("org.hibernate.validator:hibernate-validator:8.0.0.Final")
+	implementation("org.postgresql:postgresql:42.5.0")
+	implementation("com.h2database:h2:2.1.214")
 	implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")

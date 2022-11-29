@@ -10,7 +10,7 @@ import org.springframework.security.web.SecurityFilterChain
 
 @EnableWebSecurity
 @Configuration(proxyBeanMethods = false)
-class WebSecurityConfig {
+class SecurityConfig {
 
     @Throws(Exception::class)
     @Bean
@@ -18,8 +18,8 @@ class WebSecurityConfig {
         http
             .authorizeRequests {
                 it
-                    .antMatchers(HttpMethod.GET, "/foos/**").hasAuthority("SCOPE_message.read")
-                    .antMatchers(HttpMethod.POST, "/foos").hasAuthority("SCOPE_message.write")
+                    .antMatchers(HttpMethod.GET, "/**").hasAuthority("SCOPE_orders.read")
+                    .antMatchers(HttpMethod.POST, "/**").hasAuthority("SCOPE_orders.write")
                     .anyRequest().authenticated()
             }
             .oauth2ResourceServer { oauth2: OAuth2ResourceServerConfigurer<HttpSecurity?> -> oauth2.jwt() }
